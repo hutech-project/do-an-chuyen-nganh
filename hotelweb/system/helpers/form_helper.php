@@ -920,7 +920,7 @@ if ( ! function_exists('validation_errors'))
 			return '';
 		}
 
-		return $OBJ->error_string($prefix, $suffix);
+		return "<div class='mess_error'><ul>".$OBJ->error_string($prefix, $suffix)."</ul></div>";
 	}
 }
 

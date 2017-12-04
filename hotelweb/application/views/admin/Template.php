@@ -12,11 +12,9 @@
   ?>
   <div id="main">
     <div id="info">
-      <div align="center">
         <?php 
           $this->load->view($loadPage);
         ?>
-      </div>
     </div>
   </div>
   <?php
