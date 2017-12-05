@@ -101,6 +101,24 @@ class User_Model extends CI_Model
     $this->db->where('id' , $id);
     $this->db->update($this->_table,$data);  
   }  
+  /**
+   * Verify Account
+   *
+   * @return boolean
+   */
+  public function checkMatchAccount($username,$password)
+  {
+    $this->db->where('username' , $username);
+    $this->db->where('password' , $password);
+    if($this->db->get($this->_table)->num_rows() > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+  
+  
   
   
 }

@@ -1,6 +1,4 @@
-<div id="main">
-      
-        <div id="info">
+ 
           <div align="center">
 <?php
   if(isset($mess) && $mess !=''){
