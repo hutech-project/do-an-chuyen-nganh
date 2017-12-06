@@ -14,7 +14,7 @@ class User extends AdminController{
     $this->load->model("User_Model");
     // Pagination Confifure
     $this->load->library('pagination');
-    $config['base_url'] = base_url().'/admin/User/index/';
+    $config['base_url'] = base_url().'admin/User/index/';
     $config['total_rows'] = $this->User_Model->countAll();
     $config['per_page'] = 3;
     $config['uri_segment'] = 4;
@@ -84,13 +84,13 @@ class User extends AdminController{
     $this->load->helper('form');
     $this->load->library('form_validation');
     $this->form_validation->CI =& $this;
-    $this->_data["titlePage"]="Add A User";
+    $this->_data["titlePage"]="Edit User";
     $this->_data['loadPage']="user/Edit_view";
 
     $this->form_validation->set_rules('username' , 'Username' , 'required|min_length[4]|callback_checkUsernameUnique');
     
-    // $this->form_validation->set_rules('password' , 'Password' );
-    // $this->form_validation->set_rules('repassword' , 'Repassword' , 'matches[password]');
+     $this->form_validation->set_rules('password' , 'Password' , 'trim' );
+     $this->form_validation->set_rules('repassword' , 'Repassword' , 'trim|matches[password]');
     
     $this->form_validation->set_rules('email', 'Email' , 'required|valid_email|callback_checkEmailUnique');
 
