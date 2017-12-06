@@ -32,7 +32,7 @@ class Verify extends AdminController
 
     if($this->form_validation->run() == true){
       if($this->input->post('submit')){
-        $username = $this->input->post('username');
+        $username  = $this->input->post('username');
         $password = $this->input->post('password');
         if($this->User_Model->checkMatchAccount($username,$password) == true){
           $account_session = ['username' => $this->input->post('username'), 
@@ -57,9 +57,11 @@ class Verify extends AdminController
    *
    * @return void
    */
-  public function name($param)
+  public function Logout()
   {
-    return null;
+    $this->session->sess_destroy();
+    redirect(base_url().'admin/Verify/Login');
+    exit();
   }
   
       

@@ -8,12 +8,18 @@
 <body>
   <?php 
     $this->load->view("$module/Top"); 
-    $this->load->view("$module/Menu");
-  ?>
+    if (isset($this->session->username)) { 
+      $data['username'] = $this->session->username;
+      $this->load->view("$module/Menu",$data);
+    }
+?>
   <div id="main">
     <div id="info">
-        <?php 
-          $this->load->view($loadPage);
+        <?php
+          if (!$this->session->username) {
+            $loadPage = 'verify/Login_view';
+          }
+            $this->load->view($loadPage);
         ?>
     </div>
   </div>
