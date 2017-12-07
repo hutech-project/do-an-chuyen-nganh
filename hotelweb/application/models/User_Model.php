@@ -110,16 +110,12 @@ class User_Model extends CI_Model
   {
     $this->db->where('username' , $username);
     $this->db->where('password' , $password);
-    if($this->db->get($this->_table)->num_rows() > 0){
-      return true;
+    $query = $this->db->get($this->_table);
+    if($query->num_rows() > 0){
+      return $query->row_array();
     }else{
       return false;
     }
   }
-  
-  
-  
-  
-  
 }
 ?>  

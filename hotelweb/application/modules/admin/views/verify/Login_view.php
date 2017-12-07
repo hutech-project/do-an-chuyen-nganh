@@ -1,8 +1,6 @@
 <div class='formPanel medium'>
 <?php 
-  if($this->form_validation->run() == false){
-    echo validation_errors('<li>','</li>');
-  }
+      echo validation_errors('<li>','</li>');
       if(isset($error_mess) && $error_mess != ''){
         echo "<div class='mess_error'><ul><li>".$error_mess."</li></ul></div>";
       }

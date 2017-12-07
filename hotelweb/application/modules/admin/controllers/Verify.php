@@ -27,29 +27,35 @@ class Verify extends AdminController
     $this->load->library('form_validation');
     $this->form_validation->CI =& $this;
   
-    $this->form_validation->set_rules('username','Username' , 'required');
-    $this->form_validation->set_rules('password','Password' , 'required');
 
-    if($this->form_validation->run() == true){
-      if($this->input->post('submit')){
+    if($this->input->post('submit')){
+      if($this->input->post('username') ){
         $username  = $this->input->post('username');
+      }else{
+        $this->_data['error_mess'] = 'The Username is required.';
+        //$username = '';
+      }
+      if ($this->input->post('password')) {
         $password = $this->input->post('password');
-        if($this->User_Model->checkMatchAccount($username,$password) == true){
-          $account_session = ['username' => $this->input->post('username'), 
-                              'password' => $this->input->post('password'),
-                              'email' => $this->input->post('email'),
-                              'level' => $this->input->post('level')];
+      } else {
+        $this->_data['error_mess'] = 'The Password is required';
+        //$password= '';
+      } 
+      $row=$this->User_Model->checkMatchAccount($username,$password);
+        if($row != false){
+          $account_session = ['username' => $row['username'], 
+                              'password' => $row['pasword'],
+                              'email' => $row['email'],
+                              'level' => $row['level']];
           $this->session->set_userdata($account_session);
           $this->session->set_flashdata('flash_mess' ,'Login Success');
-          redirect(base_url().'/admin/User');
+          redirect(base_url().'admin/User/index');
         }else{
           $this->_data['error_mess'] = 'username or password invalid, please try again';
-          $this->load->view($this->_data['path'],$this->_data);
         }
-      }
-    }else{
-    $this->load->view($this->_data['path'],$this->_data);
-    }
+      } 
+      $this->load->view($this->_data['path'],$this->_data);
+    
   }
   
   /**

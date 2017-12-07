@@ -16,10 +16,8 @@
   <div id="main">
     <div id="info">
         <?php
-          if (!$this->session->username) {
-            $loadPage = 'verify/Login_view';
-          }
             $this->load->view($loadPage);
+        
         ?>
     </div>
   </div>
