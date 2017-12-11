@@ -40,10 +40,17 @@ class Room extends AdminController{
     $this->load->model('Room_Model');
     $this->_data["titlePage"]="Add A Room";
     $this->_data['loadPage']="room/Add";
+
+    $roomTypeList = $this->Room_Model->getAllRoomType();
+    $a = array();
+    foreach ($roomTypeList as $key ) {
+      array_push($a , $key['room_type']);
+    }
+    $list = implode("," , $a);
     $this->form_validation->set_rules('roomName' , 'Room Name' , 'required|callback_checkRoomNameUnique');
     $this->form_validation->set_rules('status' , 'Status' , 'required');
     $this->form_validation->set_rules('capacity' , 'Capacity' , 'required');
-    $this->form_validation->set_rules('roomType' , 'Room Type' , 'required');
+    $this->form_validation->set_rules('roomType' , 'Room Type' , "required|in_list[$list]");
 
     if ($this->form_validation->run() == true) {
      $typeId = $this->Room_Model->getTypeIdByRoomType($this->input->post('roomType')); 
@@ -89,10 +96,16 @@ class Room extends AdminController{
     $this->_data["titlePage"]="Edit Room";
     $this->_data['loadPage']="room/Edit_view";
 
+    $roomTypeList = $this->Room_Model->getAllRoomType();
+    $a = array();
+    foreach ($roomTypeList as $key ) {
+      array_push($a , $key['room_type']);
+    }
+    $list = implode("," , $a);
     $this->form_validation->set_rules('roomName' , 'Room Name' , 'required|callback_checkRoomNameUnique');
     $this->form_validation->set_rules('status' , 'Status' , 'required');
     $this->form_validation->set_rules('capacity' , 'Capacity' , 'required');
-    $this->form_validation->set_rules('roomType' , 'Room Type' , 'required');
+    $this->form_validation->set_rules('roomType' , 'Room Type' , "required|in_list[$list]");
 
     if ($this->form_validation->run() == true) {
       $typeId = $this->Room_Model->getTypeIdByRoomType($this->input->post('roomType'));

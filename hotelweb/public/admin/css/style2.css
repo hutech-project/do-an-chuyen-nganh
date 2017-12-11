@@ -6,7 +6,7 @@ margin:0px;
 
 body{
 font:12px verdana;
-width:780px;
+width:1000px;
 margin:auto;
 }
 
@@ -46,7 +46,7 @@ background: #FF9900;
 
 #info{
 float:left;
-width:780px;
+width:1000px;
 }
 
 #info .news{
@@ -76,7 +76,7 @@ padding:0px;
 margin:0px;
 background:#FF6600;
 float:left;
-width:780px;
+width:1000px;
 text-align:center;
 }
 

@@ -148,6 +148,16 @@ class Room_Model extends CI_Model
     $this->db->where('room_id' , $id);
     return $this->db->get()->row_array();
   }
+ /**
+  * undocumented function
+  *
+  * @return void
+  */
+ public function getAllRoomType()
+ {
+   $this->db->select('room_type');
+   return $this->db->get($this->_tableRoomType)->result_array();
+ }
   
   
   
