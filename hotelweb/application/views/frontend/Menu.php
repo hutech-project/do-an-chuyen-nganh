@@ -35,7 +35,7 @@
             </select>
           </div>
           <div>
-            <input type="submit" name="submit" class="menu-items" value="Đặt Phòng">
+            <input type="submit" name="submit" id="submit" class="menu-items" value="Đặt Phòng">
           </div>
           </div>
         </form>
