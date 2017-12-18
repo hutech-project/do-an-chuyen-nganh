@@ -5,16 +5,18 @@
             <div>
               <select id="roomType" class="menu-items" name="roomType">
                 <option value="0">Chọn loại phòng</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                    <?php
+                      foreach ($roomTypeList as $roomType) {
+                        echo "<option value='".$roomType['room_type']."'>$roomType[room_type]</option>";
+                      }
+                    ?>
               </select>  
             </div>
            <div class="input-group">
-             <input type="text" id="checkin" class="menu-items"  value="Ngày nhận phòng"><span class="glyphicon glyphicon-calendar"></span> 
+             <input type="text" id="checkin" class="menu-items"  value="Ngày nhận phòng">
            </div>
            <div class="input-group">
-             <input type="text" id="checkout" class="menu-items" value="Ngày trả phòng"><span class="glyphicon glyphicon-calendar"></span> 
+             <input type="text" id="checkout" class="menu-items" value="Ngày trả phòng">
            </div>
           <div>
             <select id="numberOfRoom" class="menu-items" name="numberOfRoom">

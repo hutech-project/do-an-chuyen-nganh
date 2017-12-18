@@ -16,8 +16,8 @@ class Room extends AdminController{
     $this->load->library('pagination');
     $config['base_url'] = base_url().'admin/Room/index/';
     $config['total_rows'] = $this->Room_Model->countAllRoom();
-    $config['per_page'] = 3;
-    $config['uri_segment'] = 4;
+    $config['per_page'] = 10;
+    $config['uri_segment'] =4; 
       ;
     $this->pagination->initialize($config);
     $startOfIndexPage = $this->uri->segment(4);
@@ -41,14 +41,13 @@ class Room extends AdminController{
     $this->_data["titlePage"]="Add A Room";
     $this->_data['loadPage']="room/Add";
 
-    $roomTypeList = $this->Room_Model->getAllRoomType();
+    $this->_data['roomTypeList'] = $this->Room_Model->getAllRoomType();
     $a = array();
-    foreach ($roomTypeList as $key ) {
+    foreach ($this->_data['roomTypeList'] as $key ) {
       array_push($a , $key['room_type']);
     }
     $list = implode("," , $a);
     $this->form_validation->set_rules('roomName' , 'Room Name' , 'required|callback_checkRoomNameUnique');
-    $this->form_validation->set_rules('status' , 'Status' , 'required');
     $this->form_validation->set_rules('capacity' , 'Capacity' , 'required');
     $this->form_validation->set_rules('roomType' , 'Room Type' , "required|in_list[$list]");
 
@@ -56,7 +55,6 @@ class Room extends AdminController{
      $typeId = $this->Room_Model->getTypeIdByRoomType($this->input->post('roomType')); 
      $insert_dataRoom = [ 
                           'room_name' => $this->input->post('roomName'),
-                          'status' =>(int)$this->input->post('status'),
                           'number_people' => $this->input->post('capacity'),
                           'type_id' => $typeId['type_id']];
      $this->Room_Model->addRoom($insert_dataRoom);
@@ -96,9 +94,9 @@ class Room extends AdminController{
     $this->_data["titlePage"]="Edit Room";
     $this->_data['loadPage']="room/Edit_view";
 
-    $roomTypeList = $this->Room_Model->getAllRoomType();
+    $this->_data['roomTypeList'] = $this->Room_Model->getAllRoomType();
     $a = array();
-    foreach ($roomTypeList as $key ) {
+    foreach ($this->_data['roomTypeList'] as $key ) {
       array_push($a , $key['room_type']);
     }
     $list = implode("," , $a);

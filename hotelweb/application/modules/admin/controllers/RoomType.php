@@ -16,7 +16,7 @@ class RoomType  extends AdminController{
     $this->load->library('pagination');
     $config['base_url'] = base_url().'admin/RoomType/index/';
     $config['total_rows'] = $this->Room_Model->countAllRoomType();
-    $config['per_page'] = 3;
+    $config['per_page'] = 10;
     $config['uri_segment'] = 4;
       ;
     $this->pagination->initialize($config);

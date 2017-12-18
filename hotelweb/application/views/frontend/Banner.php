@@ -15,7 +15,7 @@
                     ?>
                   </ul>
                 </li>
-                <li><a href="<?php echo base_url()."$module/"?>">Dịch Vụ</a></li>
+                <li><a href="<?php echo base_url()."$module/Homepage/Service"?>">Dịch Vụ</a></li>
               </ul>
             </div>
          </nav> 

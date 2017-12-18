@@ -37,7 +37,8 @@ Khách sạn cũng có một nhà hàng phục vụ ăn sáng – gọi món và
             <br>
             <br>
 Đừng để chuyến du lịch tuyệt vời của bạn bị lãng phí, hãy đến với khách sạn Gia Viên chúng tôi để tận hưởng một cảm giác thật thoải mái và an tâm. Các bạn có thể đặt phòng trực tiếp thông qua website: giavienhotel.com hoặc các bạn cũng có thể đặt phòng ngay với chúng tôi qua các trang web du lịch uy tín như: agoda.com, booking.com, hotels.com…</p>
-            <hr>
+        <br>
+            
             
         </div>
       </div>

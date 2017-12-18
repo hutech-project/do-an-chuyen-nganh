@@ -16,7 +16,7 @@ class Service extends AdminController{
     $this->load->library('pagination');
     $config['base_url'] = base_url().'admin/Service/index/';
     $config['total_rows'] = $this->Service_Model->countAll();
-    $config['per_page'] = 3;
+    $config['per_page'] = 10;
     $config['uri_segment'] = 4;
       ;
     $this->pagination->initialize($config);
