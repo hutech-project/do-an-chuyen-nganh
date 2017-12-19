@@ -1,7 +1,7 @@
     <div class="main container">
         <div class="container">
           <nav class="nav nav-tabs"  role="tablist">
-            <a class="nav-item nav-link active" id="nav-list-tab" data-toggle="tab" href="#nav-list" role="tab" aria-controls="nav-list" aria-selected="true">List</a>
+                <a class="nav-item nav-link active" id="nav-list-tab" data-toggle="tab" href="#nav-list" role="tab" aria-controls="nav-list" aria-selected="true">Danh Sách Tài Khoản</a>
           </nav>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
@@ -14,7 +14,7 @@
     echo "</div>";
   }
 ?>
-              <a roll="button" class="btn btn-secondary add float-right"  >+ Add</a>
+              <a roll="button" class="btn btn-secondary add float-right" href='<?php echo base_url()."$module/RoomType/Add";?>'>+ Thêm</a>
               <table class="table table-hover">
                 <thead class='thead-dark'>
                   <tr>
@@ -39,8 +39,8 @@
                       } else {
                         echo "<td>Member</td>";
                       }
-                      echo "<td><a href='".base_url()."$module/User/Edit/$item[id]'>Edit</a></td>";
-                      echo "<td><a href='".base_url()."$module/User/Delete/$item[id]'>Del</a></td>";
+                      echo "<td><a href='".base_url()."$module/User/Edit/$item[id]'>Sửa</a></td>";
+                      echo "<td><a href='".base_url()."$module/User/Delete/$item[id]'>Xóa</a></td>";
                       echo "</tr>";
                     }
 

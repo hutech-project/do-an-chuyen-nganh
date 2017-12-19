@@ -16,7 +16,7 @@ class User extends AdminController{
     $this->load->library('pagination');
     $config['base_url'] = base_url().'admin/User/index/';
     $config['total_rows'] = $this->User_Model->countAll();
-    $config['per_page'] = 10;
+    $config['per_page'] = 5;
     $config['uri_segment'] = 4;
       ;
     $this->pagination->initialize($config);
