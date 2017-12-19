@@ -10,7 +10,7 @@ class Staff extends AdminController{
   }    
   public function index(){
     $this->_data["titlePage"]="List All Staff";
-    $this->_data['loadPage']="staff/Index_view";
+    $this->_data['loadPage']="staff/Staff_view";
     $this->load->model("Staff_Model");
     // Pagination Confifure
     $this->load->library('pagination');
@@ -18,7 +18,32 @@ class Staff extends AdminController{
     $config['total_rows'] = $this->Staff_Model->countAll();
     $config['per_page'] = 5;
     $config['uri_segment'] = 4;
-      ;
+    // Custom BootStrap Pagination
+    // Custom full tag
+    $config['full_tag_open'] = "<ul class='pagination justify-content-center'>";   
+    $config['full_tag_close'] = "</ul>";
+    //
+    //Custom Current Page
+    $config['cur_tag_open'] = '<li class="page-item active"><span class="page-link">';
+    $config['cur_tag_close'] = '</span></li>';
+    // Custom Prev
+    $config['prev_tag_open'] = '<li class="page-item">';
+    $config['prev_link'] = '&lt;';
+    $config['prev_tag_close'] = '</a></li>';
+    //
+    // Custom Number 
+    $config['num_tag_open'] = '<li class="page-item">';
+    $config['num_tag_close'] = '</a></li>';
+    //
+    // Custom Next
+    $config['next_tag_open'] = '<li class="page-item">';
+    $config['next_link'] = '&gt;';
+    $config['next_tag_close'] = '</li>';
+    //Custom Pagination Link
+    $config['attributes'] = array('class' => 'page-link');
+    $config['attributes']['rel'] = FALSE;
+    //
+      
     $this->pagination->initialize($config);
     $startOfIndexPage = $this->uri->segment(4);
     $this->_data['page'] = $this->pagination->create_links();

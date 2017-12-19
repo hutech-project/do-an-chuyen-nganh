@@ -1,7 +1,7 @@
     <div class="main container">
         <div class="container">
           <nav class="nav nav-tabs"  role="tablist">
-                <a class="nav-item nav-link active" id="nav-list-tab" data-toggle="tab" href="#nav-list" role="tab" aria-controls="nav-list" aria-selected="true">Danh Sách Tài Khoản</a>
+                <a class="nav-item nav-link active" id="nav-list-tab" data-toggle="tab" href="#nav-list" role="tab" aria-controls="nav-list" aria-selected="true">Danh Sách Dịch Vụ</a>
           </nav>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
@@ -14,14 +14,13 @@
     echo "</div>";
   }
 ?>
-              <a roll="button" class="btn btn-secondary add float-right" href='<?php echo base_url()."$module/User/Add";?>'>+ Thêm</a>
+              <a roll="button" class="btn btn-secondary add float-right" href='<?php echo base_url()."$module/Service/Add";?>'>+ Thêm</a>
               <table class="table table-hover">
                 <thead class='thead-dark'>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Tài Khoản</th>
-                    <th scope="col">Mật Khẩu</th>
-                    <th scope="col">Quyền</th>
+                    <th scope="col">Dịch Vụ</th>
+                    <th scope="col">Giá</th>
                     <th scope="col">Chỉnh Sửa</th>
                     <th scope="col">Xóa</th>
                   </tr>
@@ -32,15 +31,10 @@
                       $stt++;
                       echo "<tr>";
                       echo "<th scope='row'>$stt</td>";
-                      echo "<td>$item[username]</td>";                   
-                      echo "<td>$item[email]</td>";  
-                      if ($item['level'] == 2) {
-                        echo "<td style='color:red'>Administrator</td>";
-                      } else {
-                        echo "<td>Member</td>";
-                      }
-                      echo "<td><a href='".base_url()."$module/User/Edit/$item[id]'>Sửa</a></td>";
-                      echo "<td><a href='".base_url()."$module/User/Delete/$item[id]'>Xóa</a></td>";
+                      echo "<td>$item[service_name]</td>";                   
+                      echo "<td>$item[price]</td>";  
+                      echo "<td><a href='".base_url()."$module/Service/Edit/$item[service_id]'>Sửa</a></td>";
+                      echo "<td><a href='".base_url()."$module/Service/Delete/$item[service_id]'>Xóa</a></td>";
                       echo "</tr>";
                     }
 
@@ -49,7 +43,7 @@
                 </tbody>
               </table>
             <?php
-                echo $page;
+              echo $page;
             ?>
 
             </div>
