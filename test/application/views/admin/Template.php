@@ -17,15 +17,16 @@
     if (isset($this->session->username)) { 
       $data['username'] = $this->session->username;
       $this->load->view("$module/Top",$data); 
+      echo "<div class='container main-wrapper'>";
       $this->load->view("$module/Menu",$data);
     }
     else{
       $data['username'] = '';
       $this->load->view("$module/Top",$data); 
+      echo "<div class='container main-wrapper'>";
     }
-  
     $this->load->view($loadPage);
-       
+    echo "</div>";   
     $this->load->view("$module/Bottom");
   ?>
   </div>  
