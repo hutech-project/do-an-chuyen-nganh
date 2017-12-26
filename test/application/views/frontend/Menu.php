@@ -1,6 +1,6 @@
 <div id="menu"><h2>ĐẶT PHÒNG KHÁCH SẠN</h2>
       <hr>
-        <form action="post" href="">
+        <form action="<?php echo base_url()."$module/Homepage/Booking"?>" method="post" id = "form">
           <div id="menu-wrapper">
             <div>
               <select id="roomType" class="menu-items" name="roomType">
@@ -10,13 +10,13 @@
                         echo "<option value='".$roomType['room_type']."'>$roomType[room_type]</option>";
                       }
                     ?>
-              </select>  
+              </select>
             </div>
            <div class="input-group">
-             <input type="text" id="checkin" class="menu-items"  value="Ngày nhận phòng">
+             <input type="text" id="checkin" name="checkin" class="menu-items"  value="Ngày nhận phòng">
            </div>
            <div class="input-group">
-             <input type="text" id="checkout" class="menu-items" value="Ngày trả phòng">
+             <input type="text" id="checkout" name="checkout" class="menu-items" value="Ngày trả phòng">
            </div>
           <div>
             <select id="numberOfRoom" class="menu-items" name="numberOfRoom">

@@ -12,17 +12,17 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title><?php echo $titlePage;?></title>
-  <script>
-  $( function() {
-    $( "#checkin" ).datepicker();
-    $("#checkout").datepicker();
-  } );
-  </script>
-  
+<script>
+$( function() {
+  $( "#checkin" ).datepicker({ dateFormat: 'yy-mm-dd'});
+  $("#checkout").datepicker({ dateFormat: 'yy-mm-dd'});
+} );
+</script>
+
 </head>
 <body>
     <div id="container">
-      <?php 
+      <?php
         $this->load->view("$module/Banner",$roomTypeList);
         $this->load->view("$module/Slideshow");
         $this->load->view("$module/Menu");
@@ -30,7 +30,7 @@
       <div id='main'>
       <?php
         $this->load->view("$loadPage");
-      ?>  
+      ?>
       </div>
       <?php
          $this->load->view("$module/Bottom");
@@ -38,8 +38,8 @@
     </div>
 
 
-     
-    
+
+
 
 </body>
 </html>
