@@ -1,0 +1,45 @@
+html, body{
+  height:100%;
+}
+.container{
+  height:100%;
+}
+.menu{
+  float:left;
+  width:15% ;
+  height:100% !important;
+  min-height:100%; 
+}
+.main{
+  width:85%;
+  float:left;
+  padding:0;
+  padding-top:1%;
+  height:100%;
+  position:relative;
+}
+.main-wrapper{
+  padding:0;
+  overflow:auto;
+  height:100%;
+}
+.bottom{
+  clear:left;
+}
+.table{
+  clear:right;
+  text-align:center;
+}
+.alert{
+  margin-top: 1%;
+}
+.alert ul{
+  list-style-type:none;
+}
+.add{
+  margin-top:1%;
+  margin-bottom:1%;
+}
+/* fieldset{ */
+/*   width:85%; */
+/* } */
